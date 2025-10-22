@@ -4,6 +4,11 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -17,6 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,7 +32,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Force git auth to use PAT
+        run: |
+          git config --global user.name "semantic-bot"
+          git config --global user.email "actions@github.com"
+          git remote set-url origin https://CzeliZoltan:${{ secrets.GH_TOKEN }}@github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan.git
+
+      - name: Debug git remote
+        run: git remote -v
+
       - name: Run semantic release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
