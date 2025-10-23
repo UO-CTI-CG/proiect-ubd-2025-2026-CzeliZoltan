@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.0...v1.0.1) (2025-10-23)
+
+
+### Bug Fixes
+
+* updated .gitignore and tried to push the release further ([c07d2e1](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/commit/c07d2e1c32d2d04fb45690cbffad87f0e0fed012))
+
 # 1.0.0 (2025-10-23)
 
 
