@@ -41,6 +41,9 @@ jobs:
       - name: Debug git remote
         run: git remote -v
 
+      - name: Fetch all tags
+        run: git fetch --tags --force
+
       - name: Run semantic release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
