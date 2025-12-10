@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.4...v1.0.5) (2025-12-10)
+
+
+### Bug Fixes
+
+* Repaired a typo in JwtUtil ([bdd5966](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/commit/bdd59669de0afef2e6d2288fa5b92ff198e0fa9c))
+
 ## [1.0.4](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.3...v1.0.4) (2025-12-10)
 
 
