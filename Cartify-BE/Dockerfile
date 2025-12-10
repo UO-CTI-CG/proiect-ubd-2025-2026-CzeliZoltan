@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jdk AS builder
+FROM maven:3.9.0-eclipse-temurin-21-alpine AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
