@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.3...v1.0.4) (2025-12-10)
+
+
+### Bug Fixes
+
+* Remade Dockerfile for BE ([11d186c](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/commit/11d186c3aa9f16f53ecf9af0bad6914f6533d4e5))
+
 ## [1.0.3](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.2...v1.0.3) (2025-12-10)
 
 
