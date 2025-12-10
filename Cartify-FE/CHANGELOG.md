@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.6...v1.0.7) (2025-12-10)
+
+
+### Bug Fixes
+
+* Updated CI pipelines to only start when the paths are BE or FE ([fa548ee](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/commit/fa548eebe51790c6cafd2ab13695db98b2f69bd8))
+
 ## [1.0.6](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.5...v1.0.6) (2025-12-10)
 
 
