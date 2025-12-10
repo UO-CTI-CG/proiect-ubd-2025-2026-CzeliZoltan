@@ -1,0 +1,79 @@
+name: Cartify FE - CI (Test & Build)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  fe_test:
+    name: Frontend Tests (Docker)
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Cartify-FE
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build FE test image
+        run: |
+          docker build \
+            -f Dockerfile \
+            --target test \
+            -t cartify-fe:test \
+            .
+
+      - name: Run FE tests
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}/Cartify-FE:/app \
+            cartify-fe:test
+
+
+  fe_build:
+    name: Frontend Build (Docker)
+    runs-on: ubuntu-latest
+    needs: fe_test
+
+    defaults:
+      run:
+        working-directory: Cartify-FE
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build FE production image
+        run: |
+          docker build \
+            -f Dockerfile \
+            --target builder \
+            -t cartify-fe:latest \
+            .
+
+      - name: Push FE image
+        run: |
+          docker tag cartify-fe:latest ${{ secrets.DOCKER_HUB_USERNAME }}/cartify-fe:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cartify-fe:latest
