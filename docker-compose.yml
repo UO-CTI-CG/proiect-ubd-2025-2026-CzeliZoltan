@@ -15,6 +15,38 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - cartify-network
+
+  backend:
+    image: cartify-be:latest
+    container_name: cartify_backend
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/cartify?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: cartify_user
+      SPRING_DATASOURCE_PASSWORD: cartify_pass
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - cartify-network
+
+  frontend:
+    image: cartify-fe:latest
+    container_name: cartify_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "4200:80"
+    networks:
+      - cartify-network
 
 volumes:
   mysql_data:
+
+networks:
+  cartify-network:
+    driver: bridge
