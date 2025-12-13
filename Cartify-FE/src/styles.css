@@ -1,50 +1,35 @@
-* {
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap');
+
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background-color: #f4f6fa;
-  color: #333;
-  overflow-x: hidden;
-}
-
-.common-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-input,
-.form-button {
-  font-family: inherit;
-}
-
-.btn-primary {
-  background: linear-gradient(90deg, #0d6efd, #6610f2);
-  border: none;
-  color: #fff;
-  padding: 0.8rem 1.4rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(13, 110, 253, 0.4);
+  font-family: Inter, Roboto, sans-serif;
+  background: #f6f7fb;
+  color: #111827;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
 }
-
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #0d6efd, #6610f2);
+  background: #c1c1c1;
   border-radius: 4px;
 }
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
