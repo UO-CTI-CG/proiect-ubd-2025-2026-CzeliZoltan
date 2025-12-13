@@ -45,6 +45,9 @@ jobs:
         working-directory: Cartify-FE
         run: npm run build -- --configuration production
 
+      - name: Install release deps (root)
+        run: npm ci
+
       - name: Force git auth to use PAT
         run: |
           git config --global user.name "semantic-bot"
