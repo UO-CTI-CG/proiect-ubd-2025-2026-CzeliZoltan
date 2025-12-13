@@ -1,0 +1,27 @@
+{
+  "branches": ["main"],
+  "tagFormat": "v${version}",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "releaseRules": [
+          { "type": "fix", "release": "patch" },
+          { "type": "task", "release": "minor" },
+          { "breaking": true, "release": "major" }
+        ]
+      }
+    ],
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          { "path": "Cartify-BE/target/*.jar", "label": "Backend JAR" },
+          { "path": "Cartify-FE/dist/**", "label": "Frontend Build" }
+        ]
+      }
+    ]
+  ]
+}
