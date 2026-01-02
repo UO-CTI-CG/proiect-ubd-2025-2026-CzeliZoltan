@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.5...v1.0.6) (2025-12-10)
+
+
+### Bug Fixes
+
+* Updated the UserDetailsServiceImpl package to pass the docker build ([3d5120c](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/commit/3d5120c94399c64445580496756aedc59ed755fe))
+
 ## [1.0.5](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.4...v1.0.5) (2025-12-10)
 
 
