@@ -3,8 +3,12 @@ name: Cartify FE - CI (Test & Build)
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'Cartify-FE/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'Cartify-FE/**'
 
 jobs:
   fe_test:

@@ -3,8 +3,12 @@ name: Cartify BE - CI (Build Only)
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'Cartify-BE/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'Cartify-BE/**'
 
 jobs:
   be_build:
