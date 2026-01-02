@@ -1,7 +1,7 @@
 package com.eCommerce.Cartify.filters;
 
 import com.eCommerce.Cartify.utils.JwtUtil;
-import com.eCommerce.Cartify.services.UserDetailsServiceImpl; // <-- REQUIRED FIX
+import com.eCommerce.Cartify.services.jwt.UserDetailsServiceImpl; // <-- REQUIRED FIX
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
