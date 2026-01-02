@@ -1,8 +1,5 @@
 {
   "branches": ["main"],
-
-  "preset": "conventionalcommits",
-
   "tagFormat": "v${version}",
 
   "plugins": [
