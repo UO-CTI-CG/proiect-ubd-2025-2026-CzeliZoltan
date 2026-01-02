@@ -1,5 +1,5 @@
 {
-  "repositoryUrl": "https://github.com/CzeliZoltan/proiect-ubd-2025-2026-CzeliZoltan.git",
+  "repositoryUrl": "https://CzeliZoltan:${GH_TOKEN}@github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan.git",
   "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
