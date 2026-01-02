@@ -45,3 +45,7 @@ Thumbs.db
 *.tgz
 *.zip
 *.tar.gz
+
+**/*.pem
+**/*.crt
+**/*.key
