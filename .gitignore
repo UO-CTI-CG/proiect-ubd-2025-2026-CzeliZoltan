@@ -12,7 +12,6 @@ pnpm-debug.log*
 **/.angular/
 **/.angular/cache/
 
-**/*.js
 **/*.js.map
 **/*.d.ts
 
