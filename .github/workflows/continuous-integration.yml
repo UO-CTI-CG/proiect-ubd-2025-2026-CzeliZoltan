@@ -1,4 +1,4 @@
-name: CI Pipeline for Test and Build.
+name: CI Pipeline for Test and Build
 
 on:
   pull_request:
@@ -8,6 +8,10 @@ jobs:
   test-build:
     name: Run tests & build
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Cartify
 
     steps:
       - name: Checkout repository
