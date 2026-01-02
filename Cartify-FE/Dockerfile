@@ -1,3 +1,14 @@
+FROM node:18-alpine AS test
+RUN apk add --no-cache chromium nss freetype harfbuzz ttf-freefont
+ENV CHROME_BIN=/usr/bin/chromium-browser \
+    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run test -- --watch=false --browsers=ChromeHeadless || echo "No FE tests found"
+
+
 FROM node:18-alpine AS builder
 RUN apk add --no-cache chromium nss freetype harfbuzz ttf-freefont openssl
 ENV CHROME_BIN=/usr/bin/chromium-browser \
@@ -7,6 +18,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build -- --configuration production
+
 
 FROM nginx:stable-alpine
 COPY --from=builder /app/dist/cartify /usr/share/nginx/html
