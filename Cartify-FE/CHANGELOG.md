@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.7...v1.0.8) (2025-12-10)
+
+
+### Bug Fixes
+
+* Deleted FE commands from release ([37fd7b7](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/commit/37fd7b7faa0ce59cc8f3b734ffcaf93fa6f9de00))
+
 ## [1.0.7](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.6...v1.0.7) (2025-12-10)
 
 
