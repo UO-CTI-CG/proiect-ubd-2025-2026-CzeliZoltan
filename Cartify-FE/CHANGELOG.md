@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.8...v1.0.9) (2025-12-11)
+
+
+### Bug Fixes
+
+* typo in release-fe.yml ([1a56ef1](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/commit/1a56ef1a3c1655b19fed94119f918db8660bf6cf))
+
 ## [1.0.8](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/compare/v1.0.7...v1.0.8) (2025-12-10)
 
 
