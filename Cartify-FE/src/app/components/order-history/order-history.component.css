@@ -1,0 +1,13 @@
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  border: 1px solid #fcd34d;
+  color: #92400e;
+  border-radius: var(--radius-md);
+  padding: 20px;
+}

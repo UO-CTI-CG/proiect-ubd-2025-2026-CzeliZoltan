@@ -1,0 +1,15 @@
+.alert-warning {
+  background-color: var(--white);
+  border: 1px solid #e2e8f0;
+  color: var(--text-main);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 700;
+}

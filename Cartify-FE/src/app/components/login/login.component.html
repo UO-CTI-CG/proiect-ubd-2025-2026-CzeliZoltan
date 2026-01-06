@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>{{ isLoginMode ? 'Login' : 'Sign Up' }}</h3>
+        </div>
+        <div class="card-body">
+
+          <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+          <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+
+          <form (ngSubmit)="onSubmit()" #authForm="ngForm">
+
+            <div *ngIf="!isLoginMode">
+              <div class="mb-3">
+                <label>First Name</label>
+                <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" required>
+              </div>
+              <div class="mb-3">
+                <label>Last Name</label>
+                <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" [(ngModel)]="user.email" required>
+            </div>
+            <div class="mb-3">
+              <label>Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="user.password" required>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">
+                {{ isLoginMode ? 'Login' : 'Register' }}
+              </button>
+            </div>
+          </form>
+
+          <div class="mt-3 text-center">
+            <p>
+              {{ isLoginMode ? 'No account yet?' : 'Already have an account?' }}
+              <a href="javascript:void(0)" (click)="onSwitchMode()">
+                {{ isLoginMode ? 'Sign Up here' : 'Login here' }}
+              </a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

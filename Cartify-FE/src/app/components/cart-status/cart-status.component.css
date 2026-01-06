@@ -1,0 +1,37 @@
+.cart-area a {
+  display: flex;
+  align-items: center;
+  background-color: #eff6ff;
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.cart-area a:hover {
+  background-color: #dbeafe;
+}
+
+.total {
+  font-weight: 600;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.total span {
+  background: var(--primary);
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.cart-area i {
+  font-size: 16px;
+}
