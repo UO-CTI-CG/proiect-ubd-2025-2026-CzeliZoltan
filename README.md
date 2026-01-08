@@ -52,4 +52,4 @@ This repository contains the code for a E-commerce website built using Angular f
 
 ### Entity Relationship Diagram
 
-![img9](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/tree/main/Cartify-FE/src/assets/images/diagram)
+![Diagramă DB](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/blob/main/db_scripts/diagram.png)
