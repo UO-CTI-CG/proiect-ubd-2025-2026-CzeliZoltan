@@ -1,109 +1,55 @@
-# Proiect-UBD - Czeli Zoltán-Dragoș
-# Cartify (eCommerce)
+# Full Stack: Angular and Java Spring Boot E-Commerce Website
 
-## 📘 Descriere generală
+## Overview
 
-Acest ghid explică modul de construire, rulare și testare a aplicației Cartify (backend și frontend) folosind Docker, Docker Compose și alte instrumente DevOps.  
-Sunt incluse instrucțiuni pentru certificate, securitate și infrastructură.
----
+This repository contains the code for a E-commerce website built using Angular for the front-end, Spring Boot for the back-end, and MySQL for the database. This project is built by following the: Full Stack Java and Spring Boot course. I worked on this website in order to help me learn more about Full Stack Development. The front end is built in Angular using the TypeScript programming language and it connects to the backend via a REST API. The backend is built using the Spring Boot framework with Java programming language which makes use of JDBC to connect to a MySQL database in order to store and retrieve the nessecary data.
 
-# 🧠 Backend
+## Features
 
-## Cerințe
-- Docker ≥ 28
-- Docker Compose ≥ 3.9
-- Java 25 LTS
-- Maven ≥ 3.10
-- MySQL 8.1
+- [Product listing]: Listing the available products by category and viewing the details of a product.
+- [Searching]: Searching for avialable products by a keyword.
+- [Pagination]: Listing the products by the current page and page size.
+- [Shopping Cart]: Having a shopping cart for all ur wanted products and perforiming CRUD operations on them such as: adding a new product, listing all the wanted products, updating the quantity of a product, removing a product from the cart.
+- [Checkout Form]: The ability to checkout with ur shopping cart and after filling the required fields you can checkout and the order is saved.
+- [Login/Logout]: Securing the authentication and authorizion of users using Okta.
+- [Members-Only Pages]: Having routes that only authenticated people can access
+- [Handling Browser Refresh]: Storing the shopping cart to the local/session storage of the web browser so that the cart data is not lost when the browser is refreshed
+- [Order History]: Displaying all the orders that a customer has made, securing the API so that only authenticated users can access the order history endpoint.
 
----
+## Technologies Used
 
-Pentru a plasa cu succes backend-ul în Docker, este necesar să construiești aplicația backend local folosind:
-```
-./mvnw clean package -DskipTests
-```
+- Angular 16.2.1: Front-end component-based framework for building single-page web applications.
+- TypeScript 5.1.6: Programming language that adds static typing with optional type annotations to JavaScript.
+- Spring Boot 3.1.2: Back-end framework for creating Java-based web applications.
+- Java 17.0.8: Object-oriented programming language that produces software for multiple platforms.
+- MySQL 8.0.17: Relational database management system.
 
-Pasul următor, pentru o construcție sigură și corectă, este să testezi aplicația backend local fie utilizând funcția Run din IntelliJ, fie rulând manual prin:
-```
-./mvnw spring-boot:run
-```
+## Getting Started
 
-Când rularea are succes, folosește:
-```
-docker-compose up --build
-```  
-pentru a construi și rula imaginea, apoi accesează:
-```
-https://localhost:8443
-https://localhost:8443/swagger-ui.html
-```
+### Prerequisites
 
-### Despre Certificate și Securitate
+- Node.js and npm: Angular requires Node.js, which includes npm (Node Package Manager), to manage packages and dependencies.
+- Angular CLI: Install the Angular CLI globally using npm, as it provides the tools necessary to create, build, and run Angular applications.
+- Code Editor: You'll need a code editor for viewing or writing code. Popular choices for Angular include Visual Studio Code or WebStorm and for Java Spring Boot you can use IntelliJ.
+- Java Development Kit (JDK): Ensure you have a compatible version of the JDK installed on your system. Spring Boot supports JDK 8, 11, and 16 (or later).
 
----
+### Installation
 
-Certificatele vor fi generate când se rulează comanda `./mvnw spring-boot:run` într-un director numit `certs`, în repository-ul backend.
+1. Clone the repository: `git clone https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan.git`
+2. Navigate to db-scripts directory: `cd db-scripts`
+3. Execute each sql script using MySql Workbench to create the database schema and required tables
+4. Navigate to the back-end directory: `cd Cartify-BE`
+5. Open the project in IntelliJ IDE and let maven automatically build and install the required dependecies
+6. Navigate to the front-end directory: `cd Cartify-FE`
+7. Install Angular CLI: `npm install -g @angular/cli`
+8. Install front-end dependencies in package.json
 
-Când build-ul este finalizat cu succes, folosește:
-```
-docker-compose up
-```
-pentru a rula imaginea și accesează link-ul oferit în terminal (https://localhost:8443).
+## Usage
 
-Pagina web va afișa că conexiunea nu este securizată; în acest caz, dă click pe `show details`, apoi pe `Proceed to the website`.
+1. Start the back-end server: Navigate to the root of the project via command line and execute the command `mvn spring-boot:run` or run CartifyApplication class in IntelliJ IDE.
+2. Start the front-end development server: Navigate to the root of the project via command line and execute the command `ng serve` or run the application in Webstorm IDE.
+3. Access the application in a web browser at `http://localhost:4200`.
 
-Acest lucru se întâmplă deoarece certificatul nu a fost importat pe mașina gazdă, creând un conflict de securitate: certificatul este valid, dar nerecunoscut de alte mașini până la import.
+### Entity Relationship Diagram
 
-Pe partea stângă a paginii de start, dă click pe butonul cu slider-e și se va deschide un dropdown care conține `Connection is not secure`. Dă click pe el, apoi selectează `Certificates`. Selectează tab-ul `Details` și, la final, ar trebui să vezi `Export`.
-
-Odată accesat butonul `Export`, se va descărca un fișier. Deschide fișierul și dă click pe `Install Certificate`, selectează `Current User` -> `Next` -> `Place all certificates in the following store:` -> `Browse` -> `Trusted Root Certification Authorities` și salvează-l acolo.
-
-Acești pași reflectă importul unui certificat auto-semnat și verificat în Trusted Root Certification Authorities, oferind mașinii abilitatea de a recunoaște și utiliza certificatul pentru acces HTTPS.
-
----
-
-# 🖥️ Frontend
-
-## Dependențe
-- Docker ≥ 28
-- Docker Compose ≥ 3.9
-- npm ≥ 10.8.2
-- node ≥ 18.20.8
-
----
-
-Pentru a plasa cu succes frontend-ul în Docker, la fel ca backend-ul, este necesar să instalezi componentele și să construiești aplicația frontend folosind:
-```
-npm install
-npm build -- --configuration production
-```
-
-Pentru a te asigura că certificatul este disponibil înainte de a accesa localhost, rulează:
-```
-npm start
-```
-Acest lucru va genera fișierele necesare pentru HTTPS.
-
-### Despre Certificate și Securitate
-
----
-
-Aceste comenzi se asigură că toate componentele sunt instalate și build-ul este realizat corect înainte de testare sau rulare.
-
-Fișierele `package.json` și `angular.json` au fost modificate pentru a crea un director care conține certificatul necesar pentru acces HTTPS, un mesaj post-start care indică fișierul pentru instrucțiuni și opțiuni de serve.
-
-Când build-ul este finalizat cu succes, folosește:
-```
-docker-compose up
-```
-și accesează link-ul oferit în terminal (https://localhost:443).
-
-Pagina web va afișa că conexiunea nu este securizată; dă click pe `show details`, apoi `Proceed to the website`.
-
-Acest lucru se întâmplă deoarece certificatul nu a fost importat pe mașina gazdă, creând un conflict de securitate: certificatul este valid, dar nerecunoscut de alte mașini până la import.
-
-Pe partea stângă a paginii de start, dă click pe butonul cu slider-e, selectează `Connection is not secure` -> `Certificates` -> `Details` -> `Export`.
-
-Descarcă fișierul, deschide-l și dă click pe `Install Certificate`, selectează `Current User` -> `Next` -> `Place all certificates in the following store:` -> `Browse` -> `Trusted Root Certification Authorities` și salvează-l acolo.
-
-Acești pași reflectă importul unui certificat auto-semnat și verificat în Trusted Root Certification Authorities, oferind mașinii abilitatea de a recunoaște și utiliza certificatul pentru acces HTTPS.
+![img9](https://github.com/UO-CTI-CG/proiect-ubd-2025-2026-CzeliZoltan/tree/main/Cartify-FE/src/assets/images/diagram)
